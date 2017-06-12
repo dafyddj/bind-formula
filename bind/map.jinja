@@ -72,9 +72,4 @@
     'jessie': {
         'pkgs': ['bind9', 'bind9utils'],
     },
-}, grain='oscodename', merge=salt['grains.filter_by']({
-    'Ubuntu': {
-        'log_dir': '/var/log/named',
-        'user': 'bind'
-    },
-}, grain='os', merge=salt['pillar.get']('bind:lookup')))) %}
+}, grain='oscodename', merge=salt['pillar.get']('bind:lookup'))) %}
