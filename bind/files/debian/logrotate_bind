@@ -3,7 +3,6 @@
     daily
     missingok
     notifempty
-    sharedscripts
     copytruncate
     compress
     {% if not salt['pkg.version']('logrotate').startswith('3.7')-%}
