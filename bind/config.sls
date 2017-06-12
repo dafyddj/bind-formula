@@ -83,6 +83,7 @@ bind_default_config:
 {% endif %}
 
 {% if grains['os_family'] == 'Debian' %}
+{%- if 'keys' in salt['pillar.get']('bind') %}
 bind_key_config:
   file.managed:
     - name: {{ map.key_config }}
@@ -95,6 +96,7 @@ bind_key_config:
       - pkg: bind
     - watch_in:
       - service: bind
+{% endif %}
 
 bind_options_config:
   file.managed:
